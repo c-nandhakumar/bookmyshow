@@ -489,7 +489,7 @@ class _TheatreSeatScreenState extends State<TheatreSeatScreen>
                         const EdgeInsets.only(left: 10, right: 10, bottom: 10),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          primary: ticket.numberOfSeats == ticket.seatsFilled
+                          backgroundColor: ticket.numberOfSeats == ticket.seatsFilled
                               ? Colors.red
                               : Colors.grey[400]),
                       onPressed: () {

@@ -90,13 +90,13 @@ class BookMyShowState extends State<BookMyShow> {
     // TODO: implement initState
     super.initState();
 
-    OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
+    // OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
 
-    OneSignal.shared.setAppId("6c72e096-055c-4e9c-847e-8b79c6a8e65c");
+    // OneSignal.shared.setAppId("6c72e096-055c-4e9c-847e-8b79c6a8e65c");
 
-    OneSignal.shared.promptUserForPushNotificationPermission().then((accepted) {
-      print("Accepted permission: $accepted");
-    });
+    // OneSignal.shared.promptUserForPushNotificationPermission().then((accepted) {
+    //   print("Accepted permission: $accepted");
+    // });
   }
 
   @override
@@ -147,6 +147,11 @@ class BookMyShowState extends State<BookMyShow> {
             TheatresPage.routeName: (ctx) => TheatresPage(),
           },
           theme: ThemeData(
+              elevatedButtonTheme: ElevatedButtonThemeData(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 231, 48, 72),
+                      foregroundColor: Colors.white,
+                      textStyle: TextStyle(color: Colors.white))),
               primaryColor: Color.fromARGB(255, 4, 28, 48),
               primarySwatch: Palette.kToDark),
           //supportedLocales: L10n.all,

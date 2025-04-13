@@ -349,7 +349,7 @@ class _BillingScreenState extends State<BillingScreen> {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                  primary: const Color.fromARGB(255, 231, 48, 72)),
+                  backgroundColor: const Color.fromARGB(255, 231, 48, 72)),
               child: Text(
                 "Pay \$229.54",
                 style:

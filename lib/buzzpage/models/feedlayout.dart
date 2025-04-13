@@ -86,7 +86,7 @@ class _FeedLayoutState extends State<FeedLayout> {
                       width: 2,
                     ),
                     Text(
-                      Jiffy(widget.buzz.datetime).fromNow(),
+                      Jiffy.parseFromDateTime(widget.buzz.datetime).fromNow(),
                       style: const TextStyle(fontSize: 12, color: Colors.grey),
                     ),
                     const Spacer(),

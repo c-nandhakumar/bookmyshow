@@ -252,7 +252,8 @@ class _TheatreListState extends State<TheatreLists> {
                                           );
                                         },
                                         style: ElevatedButton.styleFrom(
-                                          primary: const Color.fromARGB(
+                              
+                                          backgroundColor: const Color.fromARGB(
                                               255, 231, 48, 72),
                                           minimumSize:
                                               const Size.fromHeight(50),
@@ -273,7 +274,7 @@ class _TheatreListState extends State<TheatreLists> {
                         );
                       },
                       style: OutlinedButton.styleFrom(
-                        primary: Colors.green,
+                        backgroundColor: Colors.green,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(w * 0.02)),
                         side: const BorderSide(

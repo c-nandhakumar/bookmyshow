@@ -104,7 +104,7 @@ class _RatingPageState extends State<RatingPage> {
           child: ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-                primary: value == 0 ? Colors.grey[700] : Colors.red),
+                backgroundColor: value == 0 ? Colors.grey[700] : Colors.red),
             child: Text(
               "Submit Rating",
               style: TextStyle(fontSize: w * 0.04, fontWeight: FontWeight.w400),

@@ -195,7 +195,7 @@ class _SeatingPageState extends State<SeatingPage>
                               padding: const EdgeInsets.all(20),
                               child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    primary:
+                                    backgroundColor:
                                         const Color.fromARGB(255, 231, 48, 72),
                                     minimumSize: const Size.fromHeight(40),
                                   ),
@@ -291,7 +291,7 @@ class _SeatingPageState extends State<SeatingPage>
           padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: ticket.numberOfSeats == ticket.seatsFilled
+                backgroundColor: ticket.numberOfSeats == ticket.seatsFilled
                     ? Colors.green
                     : Colors.grey[400]),
             onPressed: () {

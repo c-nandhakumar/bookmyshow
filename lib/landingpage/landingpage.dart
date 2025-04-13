@@ -5,7 +5,7 @@ import 'package:bookmyshow/landingpage/pagebuilder/descriptionpage/description.d
 import 'package:bookmyshow/notifications/notification_page.dart';
 import 'package:bookmyshow/provider/movielist_provider.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+// import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:get/get.dart';
 import 'package:bookmyshow/landingpage/pagebuilder/trendingtvshows.dart';
 import 'package:bookmyshow/landingpage/pagebuilder/trending.dart';
@@ -238,11 +238,11 @@ class LandingPageState extends State<LandingPage> {
 
   Future<void> scanQrCode() async {
     try {
-      final qrCode = await FlutterBarcodeScanner.scanBarcode(
-          '#00FBE3', 'Cancel', true, ScanMode.QR);
+      // final qrCode = await FlutterBarcodeScanner.scanBarcode(
+      //     '#00FBE3', 'Cancel', true, ScanMode.QR);
       if (!mounted) return;
       setState(() {
-        this.qrCode = qrCode;
+        // this.qrCode = qrCode;
       });
     } on PlatformException {
       qrCode = 'Failed to Scan OR';

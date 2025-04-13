@@ -201,7 +201,7 @@ class MobileLoginState extends State<MobileLogin> {
                   },
                   child: Text("Verify"),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.red[900],
+                    backgroundColor: Colors.red[900],
                   ),
                 ),
               ),

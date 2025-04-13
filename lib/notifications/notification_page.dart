@@ -38,13 +38,13 @@ class _NotificationPageState extends State<NotificationPage> {
       );
     });
 
-    OneSignal.shared.setNotificationOpenedHandler((data) {
-      notify.addNotificationDetails(
-          id: data.notification.notificationId,
-          title: data.notification.title!,
-          body: data.notification.body!,
-          imgurl: data.notification.bigPicture!);
-    });
+    // OneSignal.shared.setNotificationOpenedHandler((data) {
+    //   notify.addNotificationDetails(
+    //       id: data.notification.notificationId,
+    //       title: data.notification.title!,
+    //       body: data.notification.body!,
+    //       imgurl: data.notification.bigPicture!);
+    // });
 
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       print('onMessageOpenedApp event published');
@@ -89,13 +89,13 @@ class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     final notify = Provider.of<NotificationList>(context);
-    OneSignal.shared.setNotificationOpenedHandler((data) {
-      notify.addNotificationDetails(
-          id: data.notification.notificationId,
-          title: data.notification.title!,
-          body: data.notification.body!,
-          imgurl: data.notification.bigPicture!);
-    });
+    // OneSignal.shared.setNotificationOpenedHandler((data) {
+    //   notify.addNotificationDetails(
+    //       id: data.notification.notificationId,
+    //       title: data.notification.title!,
+    //       body: data.notification.body!,
+    //       imgurl: data.notification.bigPicture!);
+    // });
     // notify.addNotificationDetails();
     return Scaffold(
       appBar: AppBar(

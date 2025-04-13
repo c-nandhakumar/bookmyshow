@@ -210,7 +210,7 @@ class _DescriptionState extends State<Description> {
                         transitionDuration: const Duration(milliseconds: 500)));
               },
               style: ElevatedButton.styleFrom(
-                  primary: const Color.fromARGB(255, 231, 48, 72)),
+                  backgroundColor: const Color.fromARGB(255, 231, 48, 72)),
               child: Text(
                 "Book tickets",
                 style:

@@ -19,9 +19,9 @@ class _UPIScreenState extends State<UPIScreen> {
     return paymentItems;
   }
 
-  final Pay _payClient = Pay.withAssets([
-    'lottie/google_pay.json',
-  ]);
+  // final Pay _payClient = Pay.withAssets([
+  //   'lottie/google_pay.json',
+  // ]);
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +49,11 @@ class _UPIScreenState extends State<UPIScreen> {
           ),
           InkWell(
             onTap: () async {
-              final result = await _payClient.showPaymentSelector(
-                provider: PayProvider.google_pay,
-                paymentItems: _paymentItems,
-              );
-              print(result.toString());
+              // final result = await _payClient.showPaymentSelector(
+              //   provider: PayProvider.google_pay,
+              //   paymentItems: _paymentItems,
+              // );
+              // print(result.toString());
             },
             child: ListTile(
               leading: ClipRRect(
@@ -83,15 +83,16 @@ class _UPIScreenState extends State<UPIScreen> {
           ),
         ]),
       ),
-      bottomNavigationBar: GooglePayButton(
-        paymentConfigurationAsset: 'lottie/google_pay.json',
-        paymentItems: _paymentItems,
-        type: GooglePayButtonType.pay,
-        onPaymentResult: onGooglePayResult,
-        loadingIndicator: const Center(
-          child: CircularProgressIndicator(),
-        ),
-      ),
+      // bottomNavigationBar:
+      //  GooglePayButton(
+      //   paymentConfigurationAsset: 'lottie/google_pay.json',
+      //   paymentItems: _paymentItems,
+      //   type: GooglePayButtonType.pay,
+      //   onPaymentResult: onGooglePayResult,
+      //   loadingIndicator: const Center(
+      //     child: CircularProgressIndicator(),
+      //   ),
+      // ),
     );
   }
 

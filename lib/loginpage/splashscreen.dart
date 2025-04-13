@@ -45,17 +45,18 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  getConnectivity() => subscription = Connectivity()
-          .onConnectivityChanged
-          .listen((ConnectivityResult result) async {
-        hasInternet = await InternetConnectionChecker().hasConnection;
-        if (!hasInternet && isAlertSet == false) {
-          setState(() {
-            showDialogBox();
-            isAlertSet = true;
-          });
-        }
-      });
+  getConnectivity() =>
+      subscription = Connectivity().onConnectivityChanged.listen(
+        (event) async {
+          hasInternet = await InternetConnectionChecker().hasConnection;
+          if (!hasInternet && isAlertSet == false) {
+            setState(() {
+              showDialogBox();
+              isAlertSet = true;
+            });
+          }
+        },
+      );
 
   showDialogBox() => showCupertinoDialog(
       context: context,
