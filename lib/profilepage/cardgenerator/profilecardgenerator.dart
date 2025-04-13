@@ -37,7 +37,10 @@ class _ProfileCardState extends State<ProfileCard> {
             scrollDirection: Axis.vertical,
             itemCount: cards.length,
             itemBuilder: (BuildContext context, int index) {
-              return CardGenerator(cards[index]);
+              return CardGenerator(
+                cards[index],
+                key: ValueKey(cards[index].text),
+              );
             }),
         Container(
           height: height * 0.20,
@@ -49,7 +52,7 @@ class _ProfileCardState extends State<ProfileCard> {
 
 class CardGenerator extends StatelessWidget {
   CardDetails? card;
-  CardGenerator(this.card);
+  CardGenerator(this.card, {super.key});
   @override
   Widget build(BuildContext context) {
     return InkWell(

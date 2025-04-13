@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class Grids {
@@ -8,22 +10,22 @@ class Grids {
 List<Grids> gridList = [
   Grids(
       imgURL:
-          'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-NjArIEV2ZW50cw%3D%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300:q-80/workshops-collection-202007231330.png'),
+          'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:l-text,ie-MTYwKyBFdmVudHM%3D,co-FFFFFF,ff-Roboto,fs-40,lx-50,ly-300,tg-b,pa-8_0_0_0,l-end/comedy-shows-collection-202305100822.png'),
   Grids(
       imgURL:
-          'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-MSBFdmVudA%3D%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300:q-80/fitness-collection-2020081150.png'),
+          'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:l-text,ie-MTUrIEV2ZW50cw%3D%3D,co-FFFFFF,ff-Roboto,fs-40,lx-50,ly-300,tg-b,pa-8_0_0_0,l-end/amusement-parks-collection-collection-202503240122.png'),
   Grids(
       imgURL:
-          'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-OCBFdmVudHM%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300:q-80/kids-collection-202007220710.png'),
+          'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:l-text,ie-NTArIEV2ZW50cw%3D%3D,co-FFFFFF,ff-Roboto,fs-40,lx-50,ly-300,tg-b,pa-8_0_0_0,l-end/theatre-shows-collection-202305100822.png'),
   Grids(
       imgURL:
-          'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-MjUrIEV2ZW50cw%3D%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300:q-80/comedy-shows-collection-202007220710.png'),
+          'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:l-text,ie-MzUrIEV2ZW50cw%3D%3D,co-FFFFFF,ff-Roboto,fs-40,lx-50,ly-300,tg-b,pa-8_0_0_0,l-end/kids-collection-collection-202503240122.png'),
   Grids(
       imgURL:
-          'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-MTArIEV2ZW50cw%3D%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300:q-80/music-shows-collection-202007220710.png'),
+          'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:l-text,ie-MjE1KyBFdmVudHM%3D,co-FFFFFF,ff-Roboto,fs-40,lx-50,ly-300,tg-b,pa-8_0_0_0,l-end/adventure-and-fun-collection-202305100822.png'),
   Grids(
       imgURL:
-          'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-OCBFdmVudHM%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300:q-80/esports-collection-202011150107.png'),
+          'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:l-text,ie-ODUrIEV2ZW50cw%3D%3D,co-FFFFFF,ff-Roboto,fs-40,lx-50,ly-300,tg-b,pa-8_0_0_0,l-end/music-shows-collection-202305100822.png'),
   Grids(
       imgURL:
           'https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-800,h-800:ote-MyBFdmVudHM%3D,otc-FFFFFF,otf-Roboto,ots-64,ox-48,oy-320,ott-b:w-300:q-80/self-improvement-collection-202007220710.png'),
@@ -51,10 +53,10 @@ class GridList extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      height: MediaQuery.of(context).size.height * 0.42,
+      // height: MediaQuery.of(context).size.height * 0.42,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
@@ -86,25 +88,57 @@ class GridList extends StatelessWidget {
                 crossAxisCount: 2,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
+                childAspectRatio: 3 / 3.95,
                 children: [
-                  ...gridList.map(
-                    (e) => Card(
+                  ...gridList.map((e) {
+                    var emoji = getRandomMovieEmoji();
+                    return Card(
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image(
                           image: NetworkImage(
                             e.imgURL.toString(),
                           ),
-
-                          // height: 40,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              alignment: Alignment.center,
+                              child: Center(
+                                  child: Text(
+                                emoji,
+                                style: TextStyle(fontSize: 56),
+                              )),
+                            );
+                          },
                         ),
                       ),
-                    ),
-                  )
+                    );
+                  })
                 ]),
           ),
         ],
       ),
     );
+  }
+
+  String getRandomMovieEmoji() {
+    const emojis = [
+      '🎬', // Clapper board
+      '🎥', // Movie camera
+      '🍿', // Popcorn
+      '📽️', // Film projector
+      '🎞️', // Film frames
+      '⭐', // Star (for ratings or actors)
+      '🎭', // Performing arts
+      '🏆', // Award
+      '🔊', // Sound
+      '🎶', // Music
+      '📺', // TV (for shows)
+      '🎟️', // Ticket
+    ];
+
+    final random = Random();
+    var emoji = emojis[random.nextInt(emojis.length)];
+    print("Emoji : $emoji");
+    return emoji;
   }
 }

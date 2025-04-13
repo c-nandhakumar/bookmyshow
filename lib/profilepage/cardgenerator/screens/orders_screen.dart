@@ -23,9 +23,10 @@ class _OrdersPageState extends State<OrdersPage> {
         leading: IconButton(
           icon: Icon(Icons.chevron_left),
           onPressed: () {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => BottomNavigation(),
-            ));
+            // Navigator.of(context).pushReplacement(MaterialPageRoute(
+            //   builder: (context) => BottomNavigation(),
+            // ));
+            Navigator.of(context).pop();
           },
         ),
       ),

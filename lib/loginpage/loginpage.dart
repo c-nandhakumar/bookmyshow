@@ -181,8 +181,9 @@ class UserInterfaceState extends State<UserInterface> {
               color: Colors.black87,
               size: width / 17,
             ),
+            Spacer(),
             Center(
-              widthFactor: width / 220,
+              // widthFactor: width / 220,
               child: const Text(
                 "Continue with Email",
                 style: TextStyle(
@@ -190,6 +191,7 @@ class UserInterfaceState extends State<UserInterface> {
                 textAlign: TextAlign.center,
               ),
             ),
+            Spacer(),
           ],
         ),
       ),
@@ -212,14 +214,16 @@ class UserInterfaceState extends State<UserInterface> {
               image: AssetImage("assets/icons/Google.png"),
               height: height / 35,
             ),
+            Spacer(),
             const Padding(
-              padding: EdgeInsets.only(left: 65),
+              padding: EdgeInsets.only(left: 0),
               child: Text(
                 "Continue with Google",
                 style: TextStyle(
                     fontSize: 17, color: Color.fromARGB(255, 129, 129, 129)),
               ),
             ),
+            Spacer()
           ],
         ),
       ),

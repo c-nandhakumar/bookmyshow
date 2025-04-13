@@ -127,6 +127,8 @@ class TrendingMovies extends StatelessWidget {
                                 width: w * 0.32,
                                 child: Text(
                                   trendingMovies![index]['title'] ?? "Loading",
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
                                   style: GoogleFonts.roboto(
                                     fontWeight: FontWeight.w400,
                                     fontSize:

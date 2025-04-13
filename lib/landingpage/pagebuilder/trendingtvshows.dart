@@ -84,6 +84,8 @@ class TrendingTvShows extends StatelessWidget {
                                         trendingShows![index]['name'] != null
                                             ? trendingShows![index]['name']
                                             : "Loading",
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
                                         style: GoogleFonts.roboto(
                                           fontWeight: FontWeight.w400,
                                           fontSize: MediaQuery.of(context)

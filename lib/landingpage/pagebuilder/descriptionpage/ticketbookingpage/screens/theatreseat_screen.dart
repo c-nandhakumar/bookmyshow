@@ -148,6 +148,7 @@ class _TheatreSeatScreenState extends State<TheatreSeatScreen>
       appBar: AppBar(
         leading: IconButton(
           // padding: EdgeInsets.all(10),
+          color: Colors.white,
           icon: const Icon(Icons.chevron_left),
           onPressed: () {
             return Navigator.of(context).pop();
@@ -158,14 +159,14 @@ class _TheatreSeatScreenState extends State<TheatreSeatScreen>
           children: [
             Text(
               widget.movieName.toString(),
-              style: const TextStyle(fontSize: 15),
+              style: const TextStyle(fontSize: 15, color: Colors.white),
             ),
             const SizedBox(
               height: 2.5,
             ),
             Text(
               widget.theatreName.toString(),
-              style: const TextStyle(fontSize: 10),
+              style: const TextStyle(fontSize: 10, color: Colors.white),
             ),
           ],
         ),
@@ -177,7 +178,7 @@ class _TheatreSeatScreenState extends State<TheatreSeatScreen>
             child: Column(
               children: [
                 Container(
-                  height: 95,
+                  height: 110,
                   width: w,
                   child: Padding(
                     padding: const EdgeInsets.all(10),
@@ -308,7 +309,7 @@ class _TheatreSeatScreenState extends State<TheatreSeatScreen>
                         const SizedBox(
                           height: 15,
                         ),
-                        Expanded(
+                        Flexible(
                           child: ListView.separated(
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
@@ -319,30 +320,36 @@ class _TheatreSeatScreenState extends State<TheatreSeatScreen>
                                 Color cardColor = timeElement.isFilled == true
                                     ? Colors.orange
                                     : Colors.green;
-                                return Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 5, horizontal: 17),
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Colors.grey,
-                                        ),
-                                        borderRadius: BorderRadius.circular(4)),
-                                    child: Column(children: [
-                                      Text(timeElement.time.toString(),
-                                          style: TextStyle(
-                                              fontSize: 13,
-                                              fontWeight: FontWeight.w600,
-                                              color: cardColor)),
-                                      timeElement.audioSystem != null
-                                          ? Text(
-                                              timeElement.audioSystem
-                                                  .toString(),
+                                return Column(
+                                  children: [
+                                    Container(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 5, horizontal: 17),
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color: Colors.grey,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(4)),
+                                        child: Column(children: [
+                                          Text(timeElement.time.toString(),
                                               style: TextStyle(
-                                                  fontSize: 9,
-                                                  color: cardColor),
-                                            )
-                                          : Container()
-                                    ]));
+                                                  fontSize: 13,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: cardColor)),
+                                          timeElement.audioSystem != null
+                                              ? Text(
+                                                  timeElement.audioSystem
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                      fontSize: 9,
+                                                      color: cardColor),
+                                                )
+                                              : Container()
+                                        ])),
+                                    Spacer()
+                                  ],
+                                );
                               },
                               separatorBuilder: (context, index) =>
                                   const SizedBox(
@@ -489,9 +496,10 @@ class _TheatreSeatScreenState extends State<TheatreSeatScreen>
                         const EdgeInsets.only(left: 10, right: 10, bottom: 10),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: ticket.numberOfSeats == ticket.seatsFilled
-                              ? Colors.red
-                              : Colors.grey[400]),
+                          backgroundColor:
+                              ticket.numberOfSeats == ticket.seatsFilled
+                                  ? Color.fromARGB(255, 231, 48, 72)
+                                  : Colors.grey[400]),
                       onPressed: () {
                         if (ticket.numberOfSeats == ticket.seatsFilled) {
                           orders.addOrder(
