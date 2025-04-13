@@ -198,7 +198,7 @@ class _TheatreListScreenState extends State<TheatreListScreen> {
                                                 width: 5,
                                               ),
                                               Container(
-                                                width: w * 0.7,
+                                                width: w * 0.78,
                                                 child: Text(
                                                   theatre.theatreName
                                                       .toString(),
@@ -227,7 +227,7 @@ class _TheatreListScreenState extends State<TheatreListScreen> {
                                                   const NeverScrollableScrollPhysics(),
                                               crossAxisSpacing: 15,
                                               mainAxisSpacing: 20,
-                                              childAspectRatio: 2.3,
+                                              childAspectRatio: 2.25,
                                               crossAxisCount: 3,
                                               children: List.generate(
                                                   theatre.timeList!.length,
@@ -287,7 +287,7 @@ class _TheatreListScreenState extends State<TheatreListScreen> {
                                                   },
                                                   child: Container(
                                                     padding: const EdgeInsets
-                                                            .symmetric(
+                                                        .symmetric(
                                                         vertical: 5,
                                                         horizontal: 10),
                                                     decoration: BoxDecoration(

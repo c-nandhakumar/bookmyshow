@@ -153,8 +153,7 @@ class _DescriptionState extends State<Description> {
                     ),
                     const Spacer(),
                     Container(
-                      height: h * 0.04,
-                      width: w * 0.21,
+                      height: 36,
                       child: OutlinedButton(
                         onPressed: () {
                           (widget.name == "Loading")

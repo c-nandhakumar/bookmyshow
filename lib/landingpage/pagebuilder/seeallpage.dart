@@ -24,6 +24,13 @@ class _SeeAllPageState extends State<SeeAllPage> {
 
     return Scaffold(
       appBar: AppBar(
+          leading: IconButton(
+            color: Colors.white,
+            icon: const Icon(Icons.chevron_left),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
           backgroundColor: Color.fromARGB(255, 10, 21, 46),
           title: const Text(
             "Now Showing",
@@ -85,9 +92,10 @@ class _SeeAllPageState extends State<SeeAllPage> {
             // width: w * 0.32,
           ),
           SizedBox(
-              //height: h * 0.10,
+              // height: h * 0.10,
               width: w * 0.43,
               child: Text(trendingList[index]['title'] ?? "Loading",
+                  overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.roboto(
                     fontWeight: FontWeight.w600,
                     fontSize: trendingList[index]['title'] != null
