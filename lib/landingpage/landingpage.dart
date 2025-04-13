@@ -89,12 +89,18 @@ class LandingPageState extends State<LandingPage> {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const NotificationPage()));
               },
-              icon: const Icon(Icons.notifications_none_outlined),
+              icon: const Icon(
+                Icons.notifications_none_outlined,
+                color: Colors.white,
+              ),
               iconSize: 27,
             ),
             IconButton(
               onPressed: scanQrCode,
-              icon: const Icon(Icons.qr_code),
+              icon: const Icon(
+                Icons.qr_code,
+                color: Colors.white,
+              ),
               iconSize: 27,
             ),
           ],

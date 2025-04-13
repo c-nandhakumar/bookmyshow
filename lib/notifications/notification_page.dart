@@ -81,9 +81,15 @@ class _NotificationPageState extends State<NotificationPage> {
                 icon: '@mipmap/ic_launcher')));
   }
 
+  int id = 0;
   void addNotification(NotificationList notify) {
+    id++;
     notify.addNotificationDetails(
-        id: "1", title: "Hi", body: "Test12", imgurl: "hello");
+        id: "$id",
+        title: "Adding LocalNotification",
+        body: "Local Notification Description",
+        imgurl:
+            "https://firebasestorage.googleapis.com/v0/b/ffirebase-68cff.appspot.com/o/mainImage%2FApple-cat.jpg?alt=media&token=b62d36b5-d01f-48c4-9664-a07e17e81cd4");
   }
 
   @override
@@ -100,16 +106,25 @@ class _NotificationPageState extends State<NotificationPage> {
     return Scaffold(
       appBar: AppBar(
           leading: IconButton(
-              icon: Icon(Icons.chevron_left),
+              icon: Icon(
+                Icons.chevron_left,
+                color: Colors.white,
+              ),
               onPressed: () => Navigator.of(context).pop()),
           backgroundColor: Color.fromARGB(255, 10, 21, 46),
           actions: [
             IconButton(
               onPressed: () => addNotification(notify),
-              icon: Icon(Icons.notification_add),
+              icon: Icon(
+                Icons.notification_add,
+                color: Colors.white,
+              ),
             )
           ],
-          title: const Text("Notifications")),
+          title: const Text(
+            "Notifications",
+            style: TextStyle(color: Colors.white),
+          )),
       body: notify.notificationsList.isEmpty
           ? const Center(child: Text("No New Notifications"))
           : SingleChildScrollView(
@@ -129,15 +144,19 @@ class _NotificationPageState extends State<NotificationPage> {
                         child: Column(
                           children: [
                             ListTile(
+                              leading: FittedBox(
+                                fit: BoxFit.fill,
+                                child: ClipRRect(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(48)),
+                                  child: Image.network(
+                                      notify.notificationsList[index].imgurl),
+                                ),
+                              ),
                               title: Text(
                                   "${notify.notificationsList[index].title}"),
                               subtitle: Text(
                                   "${notify.notificationsList[index].body}"),
-                            ),
-                            FittedBox(
-                              fit: BoxFit.cover,
-                              child: Image.network(
-                                  notify.notificationsList[index].imgurl),
                             ),
                           ],
                         ),
